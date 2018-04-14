@@ -1,8 +1,7 @@
 {
   "name": "chatwars",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "ajmalhassan",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -41,7 +40,7 @@
     "@ionic/app-scripts": "3.1.8",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project",
+  "description": "A chat wars helper app",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
