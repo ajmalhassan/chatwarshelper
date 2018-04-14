@@ -1,3 +1,4 @@
+import { EquipmentProvider } from './../../providers/equipment/equipment';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -13,12 +14,47 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'equipments.html',
 })
 export class EquipmentsPage {
+  equip ={
+    data: [],
+    loading: false,
+    noData: false,
+    error: false
+  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              private equipmentprovider: EquipmentProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EquipmentsPage');
+    this.getItems();
+  }
+
+  getItems() {
+    this.equip.loading = true;
+    this.equipmentprovider.getAllItems()
+    .subscribe((data: Array<String>) => {
+      this.equip.loading = false;
+      this.equip.noData = data.length <= 0;
+      this.equip.data = data;
+      this.generateDisplay(data);
+    },
+    error => {
+      this.equip.loading = false;
+      this.equip.error = true;
+    });
+  }
+
+  getCategories(items: Array<String>) {
+    console.log('recieved', items);
+  }
+
+  getCategoryItems(items, categories) {
+    console.log('finding items');
+  }
+
+  generateDisplay(list) {
+    console.log('generating....')
   }
 
 }

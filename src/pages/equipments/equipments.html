@@ -15,5 +15,25 @@
 
 
 <ion-content padding-top padding-bottom>
-
+  <ion-list>
+    <span *ngIf="!equip.loading && !equip.noData && !equip.error">
+      <ion-item *ngFor="let item of equip.data">
+        <ion-avatar item-start>
+          <ion-icon name="cut"></ion-icon>
+        </ion-avatar>
+        <h2>{{item.name}}</h2>
+        <h3>${{item.price}}</h3>
+        <p>attack: {{item.attack}}, defence: {{item.defense}}</p>
+      </ion-item>
+    </span>
+    <ion-item text-center *ngIf="equip.loading">
+      <loader></loader>
+    </ion-item>
+    <ion-item ion-item text-center *ngIf="equip.error || equip.noData">
+      <ion-icon name="warning"></ion-icon>
+      <br>
+      <span *ngIf="equip.error">Something went wrong</span>
+      <span *ngIf="equip.noData">No data to show</span>
+    </ion-item>
+  </ion-list>
 </ion-content>

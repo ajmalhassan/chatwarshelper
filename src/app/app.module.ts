@@ -16,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomeProvider } from '../providers/home/home';
 import { ResourcesPage } from '../pages/resources/resources';
 import { RecipesPage } from '../pages/recipes/recipes';
+import { EquipmentProvider } from '../providers/equipment/equipment';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { RecipesPage } from '../pages/recipes/recipes';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HomeProvider,
-    ConfigProvider
+    ConfigProvider,
+    EquipmentProvider
   ]
 })
 export class AppModule {}
