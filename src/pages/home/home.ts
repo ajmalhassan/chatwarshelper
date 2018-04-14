@@ -111,4 +111,20 @@ export class HomePage implements OnInit{
     this.home.cumulative.loading = false;
   }
 
+  /* 
+    @Todo: Remove this function after the api has been fixed
+  */ 
+
+ getCastleIcon(castleName: String) {
+  switch(castleName) {
+    case 'sharkteeth': return "🦈"
+    case 'dragonscale': return "🐲";
+    case 'wolfpack': return "🐺";
+    case 'potato': return "🥔";
+    case 'highnest': return "🦅";
+    case 'moonlight': return "🌕";
+    case 'deerhorn': return "🦌";
+  }
+}
+
 }
