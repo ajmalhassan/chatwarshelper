@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Chat Wars Helper",
+  "short_name": "CHW",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
