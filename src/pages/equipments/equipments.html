@@ -17,14 +17,18 @@
 <ion-content padding-top padding-bottom>
   <ion-list>
     <span *ngIf="!equip.loading && !equip.noData && !equip.error">
-      <ion-item *ngFor="let item of equip.data">
-        <ion-avatar item-start>
-          <ion-icon name="cut"></ion-icon>
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <h3>${{item.price}}</h3>
-        <p>attack: {{item.attack}}, defence: {{item.defense}}</p>
-      </ion-item>
+      <ion-item-group *ngFor="let category of equip.data.categories">
+        <ion-item-divider color="light">{{category}}</ion-item-divider>
+        <span *ngFor="let item of equip.data.items">
+            <ion-item *ngIf="item.subtype === category">
+                <h2>{{item.name}}
+                  <span *ngIf="item.redbook">📕</span>
+                </h2>
+                <h3>💰{{item.price}} ⚔️ {{item.attack}} ⛨ {{item.defense}}</h3>
+                <p></p>
+              </ion-item>
+        </span>
+      </ion-item-group>
     </span>
     <ion-item text-center *ngIf="equip.loading">
       <loader></loader>

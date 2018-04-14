@@ -22,7 +22,7 @@
             <ion-col col-6>{{i + 1}}. {{getCastleIcon(item.castle)}} {{item.castle}}</ion-col>
             <ion-col col-4>{{item.score}}</ion-col>
             <ion-col col-2 text-right>
-              <ion-icon *ngIf="i === 0" name="ribbon"></ion-icon>
+                <span *ngIf="i === 0">🏆</span>
             </ion-col>
           </ion-row>
         </span>
@@ -51,13 +51,16 @@
           <ion-row>
             <ion-col col-6>Castle</ion-col>
             <ion-col col-2>
-              <ion-icon name="ribbon"></ion-icon>
+              <!-- <ion-icon name="ribbon"></ion-icon> -->
+              👌
             </ion-col>
             <ion-col col-2>
-              <ion-icon name="logo-usd"></ion-icon>
+              <!-- <ion-icon name="logo-usd"></ion-icon> -->
+              💰
             </ion-col>
             <ion-col col-2>
-              <ion-icon name="cube"></ion-icon>
+              <!-- <ion-icon name="cube"></ion-icon> -->
+              📦
             </ion-col>
           </ion-row>
         </span>

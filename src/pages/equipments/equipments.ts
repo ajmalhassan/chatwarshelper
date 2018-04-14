@@ -1,3 +1,4 @@
+import { Item } from './../../models/item';
 import { EquipmentProvider } from './../../providers/equipment/equipment';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -15,7 +16,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class EquipmentsPage {
   equip ={
-    data: [],
+    data: {
+      items: [],
+      categories: []
+    },
     loading: false,
     noData: false,
     error: false
@@ -33,11 +37,11 @@ export class EquipmentsPage {
   getItems() {
     this.equip.loading = true;
     this.equipmentprovider.getAllItems()
-    .subscribe((data: Array<String>) => {
+    .subscribe((data: Item[]) => {
       this.equip.loading = false;
       this.equip.noData = data.length <= 0;
-      this.equip.data = data;
-      this.generateDisplay(data);
+      this.equip.data.items = data;
+      this.getCategories(data);
     },
     error => {
       this.equip.loading = false;
@@ -45,16 +49,15 @@ export class EquipmentsPage {
     });
   }
 
-  getCategories(items: Array<String>) {
+  getCategories(items: Item[]) {
+    this.equip.data.categories = [];
     console.log('recieved', items);
-  }
-
-  getCategoryItems(items, categories) {
-    console.log('finding items');
-  }
-
-  generateDisplay(list) {
-    console.log('generating....')
+    items.forEach(item => {
+      if(this.equip.data.categories.indexOf(item.subtype) === -1) {
+        this.equip.data.categories.push(item.subtype)
+      }
+    });
+    console.log(JSON.stringify(this.equip.data.categories));
   }
 
 }
