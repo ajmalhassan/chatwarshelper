@@ -9,9 +9,9 @@
 
 <ion-content padding-top padding-bottom>
 
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content></ion-refresher-content>
-      </ion-refresher>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
   <ion-card>
     <ion-card-header>
@@ -26,7 +26,7 @@
             <ion-col col-6>{{i + 1}}. {{getCastleIcon(item.castle)}} {{item.castle}}</ion-col>
             <ion-col col-4>{{item.score}}</ion-col>
             <ion-col col-2 text-right>
-                <span *ngIf="i === 0">🏆</span>
+              <span *ngIf="i === 0">🏆</span>
             </ion-col>
           </ion-row>
         </span>
@@ -108,8 +108,8 @@
             <ion-col col-6>{{i + 1}}. {{getCastleIcon(item.castle)}} {{item.castle}}</ion-col>
             <ion-col col-4>{{item.score}}</ion-col>
             <ion-col col-2 text-right>{{item.diff}}
-                <ion-icon *ngIf="item.score > 0" name="ios-arrow-round-up" color="secondary"></ion-icon>
-                <ion-icon *ngIf="item.score < 0" name="ios-arrow-round-down" color="danger"></ion-icon>
+              <ion-icon *ngIf="item.score > 0" name="ios-arrow-round-up" color="secondary"></ion-icon>
+              <ion-icon *ngIf="item.score < 0" name="ios-arrow-round-down" color="danger"></ion-icon>
             </ion-col>
           </ion-row>
         </span>

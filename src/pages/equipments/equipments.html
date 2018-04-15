@@ -22,15 +22,28 @@
     <span *ngIf="!equip.loading && !equip.noData && !equip.error">
       <ion-item-group *ngFor="let category of equip.data.categories">
         <ion-item-divider color="light">{{category}}</ion-item-divider>
-        <span *ngFor="let item of equip.data.items">
-            <ion-item *ngIf="item.subtype === category">
-                <h2>{{item.name}}
-                  <span *ngIf="item.redbook">📕</span>
-                </h2>
-                <h3>💰{{item.price}} ⚔️ {{item.attack}} ⛨ {{item.defense}}</h3>
-                <p></p>
-              </ion-item>
-        </span>
+        <ion-grid no-padding>
+            <span *ngFor="let item of equip.data.items">
+                <ion-item *ngIf="item.subtype === category">
+                  <ion-row>
+                      <ion-col col-6>
+                          <h2>{{item.name}}
+                              <span *ngIf="item.redbook">📕</span>
+                            </h2>
+                      </ion-col>
+                      <ion-col col-2>
+                          💰{{item.price}}
+                      </ion-col>
+                      <ion-col col-2>
+                          ⚔️ {{item.attack}}
+                      </ion-col>
+                      <ion-col col-2>
+                          ⛨ {{item.defense}}
+                      </ion-col>
+                  </ion-row>
+                </ion-item>
+            </span>
+        </ion-grid>
       </ion-item-group>
     </span>
     <ion-item text-center *ngIf="equip.loading">
