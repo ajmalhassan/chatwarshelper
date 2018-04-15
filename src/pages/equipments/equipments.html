@@ -15,16 +15,36 @@
 
 
 <ion-content padding-top padding-bottom>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
   <ion-list>
     <span *ngIf="!equip.loading && !equip.noData && !equip.error">
-      <ion-item *ngFor="let item of equip.data">
-        <ion-avatar item-start>
-          <ion-icon name="cut"></ion-icon>
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <h3>${{item.price}}</h3>
-        <p>attack: {{item.attack}}, defence: {{item.defense}}</p>
-      </ion-item>
+      <ion-item-group *ngFor="let category of equip.data.categories">
+        <ion-item-divider color="light">{{category}}</ion-item-divider>
+        <ion-grid no-padding>
+            <span *ngFor="let item of equip.data.items">
+                <ion-item *ngIf="item.subtype === category">
+                  <ion-row>
+                      <ion-col col-6>
+                          <h2>{{item.name}}
+                              <span *ngIf="item.redbook">📕</span>
+                            </h2>
+                      </ion-col>
+                      <ion-col col-2>
+                          💰{{item.price}}
+                      </ion-col>
+                      <ion-col col-2>
+                          ⚔️ {{item.attack}}
+                      </ion-col>
+                      <ion-col col-2>
+                          ⛨ {{item.defense}}
+                      </ion-col>
+                  </ion-row>
+                </ion-item>
+            </span>
+        </ion-grid>
+      </ion-item-group>
     </span>
     <ion-item text-center *ngIf="equip.loading">
       <loader></loader>

@@ -15,5 +15,23 @@
 
 
 <ion-content padding-top padding-bottom>
-
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <span *ngIf="!resources.loading && !resources.noData && !resources.error">
+      <span ion-item *ngFor="let resource of resources.data">
+        {{ resource.name }}
+      </span>
+    </span>
+    <span ion-item text-center *ngIf="resources.loading">
+      <loader></loader>
+    </span>
+    <span ion-item text-center *ngIf="resources.error || resources.noData">
+      <ion-icon name="warning"></ion-icon>
+      <br>
+      <span *ngIf="resources.error">Something went wrong</span>
+      <span *ngIf="resources.noData">No data to show</span>
+    </span>
+  </ion-list>
 </ion-content>

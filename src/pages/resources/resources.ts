@@ -1,3 +1,4 @@
+import { ResourceProvider } from './../../providers/resource/resource';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -14,11 +15,39 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ResourcesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  resources ={
+    data: [],
+    loading: false,
+    noData: false,
+    error: false
+  }
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private resourceprovider: ResourceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ResourcesPage');
+    this.getAllResources();
+  }
+
+  doRefresh(refresher) {
+    this.getAllResources();
+    refresher.complete();
+  }
+
+  getAllResources() {
+    this.resources.loading = true;
+    this.resources.error = false;
+    this.resourceprovider.getAllResources()
+    .subscribe((data: Array<Object>) => {
+      this.resources.data = data;
+      this.resources.loading = false;
+      this.resources.noData = data.length <= 0;
+      console.log(JSON.stringify(data));
+    },
+  error => {
+    this.resources.loading = false;
+    this.resources.error = true;
+  })
   }
 
 }

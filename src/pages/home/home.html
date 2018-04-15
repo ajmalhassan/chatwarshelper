@@ -9,6 +9,10 @@
 
 <ion-content padding-top padding-bottom>
 
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-card>
     <ion-card-header>
       Castle ranking
@@ -19,10 +23,10 @@
       <ion-grid no-padding>
         <span ion-item *ngIf="!home.ranks.loading && !home.ranks.noData && !home.ranks.error">
           <ion-row *ngFor="let item of home.ranks.data | sortBy : 'score'; let i = index">
-            <ion-col col-6>{{i + 1}}. {{item.castle}}</ion-col>
+            <ion-col col-6>{{i + 1}}. {{getCastleIcon(item.castle)}} {{item.castle}}</ion-col>
             <ion-col col-4>{{item.score}}</ion-col>
             <ion-col col-2 text-right>
-              <ion-icon *ngIf="i === 0" name="ribbon"></ion-icon>
+              <span *ngIf="i === 0">🏆</span>
             </ion-col>
           </ion-row>
         </span>
@@ -51,20 +55,23 @@
           <ion-row>
             <ion-col col-6>Castle</ion-col>
             <ion-col col-2>
-              <ion-icon name="ribbon"></ion-icon>
+              <!-- <ion-icon name="ribbon"></ion-icon> -->
+              👌
             </ion-col>
             <ion-col col-2>
-              <ion-icon name="logo-usd"></ion-icon>
+              <!-- <ion-icon name="logo-usd"></ion-icon> -->
+              💰
             </ion-col>
             <ion-col col-2>
-              <ion-icon name="cube"></ion-icon>
+              <!-- <ion-icon name="cube"></ion-icon> -->
+              📦
             </ion-col>
           </ion-row>
         </span>
 
         <span ion-item *ngIf="!home.results.loading && !home.results.noData && !home.results.error">
           <ion-row *ngFor="let result of home.results.data | sortBy : 'score'; let j = index">
-            <ion-col col-6>{{j + 1}}. {{result.castle}}</ion-col>
+            <ion-col col-6>{{j + 1}}. {{getCastleIcon(result.castle)}} {{result.castle}}</ion-col>
             <ion-col col-2>{{result.score}}
               <ion-icon *ngIf="result.score > 0" name="ios-arrow-round-up" color="secondary"></ion-icon>
               <ion-icon *ngIf="result.score < 0" name="ios-arrow-round-down" color="danger"></ion-icon>
@@ -98,11 +105,11 @@
       <ion-grid no-padding>
         <span ion-item *ngIf="!home.cumulative.loading && !home.cumulative.noData && !home.cumulative.error">
           <ion-row *ngFor="let item of home.cumulative.data.display | sortBy : 'score'; let i = index">
-            <ion-col col-6>{{i + 1}}. {{item.castle}}</ion-col>
+            <ion-col col-6>{{i + 1}}. {{getCastleIcon(item.castle)}} {{item.castle}}</ion-col>
             <ion-col col-4>{{item.score}}</ion-col>
             <ion-col col-2 text-right>{{item.diff}}
-                <ion-icon *ngIf="item.score > 0" name="ios-arrow-round-up" color="secondary"></ion-icon>
-                <ion-icon *ngIf="item.score < 0" name="ios-arrow-round-down" color="danger"></ion-icon>
+              <ion-icon *ngIf="item.score > 0" name="ios-arrow-round-up" color="secondary"></ion-icon>
+              <ion-icon *ngIf="item.score < 0" name="ios-arrow-round-down" color="danger"></ion-icon>
             </ion-col>
           </ion-row>
         </span>

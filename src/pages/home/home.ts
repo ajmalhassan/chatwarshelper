@@ -44,8 +44,16 @@ export class HomePage implements OnInit{
     this.getCumulative();
   }
 
+  doRefresh(refresher) {
+    this.getWorldTop();
+    this.getLastBattle();
+    this.getCumulative();
+    refresher.complete();
+  }
+
   getWorldTop() {
     this.home.ranks.loading = true;
+    this.home.ranks.error = false;
     this.homeprovider.getWorldTop()
     .subscribe((data: Array<String>) => {
       this.home.ranks.loading = false;
@@ -60,6 +68,7 @@ export class HomePage implements OnInit{
 
   getLastBattle() {
     this.home.results.loading = true;
+    this.home.results.error = false;
     this.homeprovider.getLastBattle()
     .subscribe((data: Array<String>) => {
       this.home.results.loading = false;
@@ -74,6 +83,7 @@ export class HomePage implements OnInit{
 
   getCumulative() {
     this.home.cumulative.loading = true;
+    this.home.cumulative.error = false;
     this.homeprovider.getCumulativeScore()
     .subscribe((data: Array<String>) => {
       this.home.cumulative.noData = data.length <= 0;
@@ -110,5 +120,21 @@ export class HomePage implements OnInit{
     }
     this.home.cumulative.loading = false;
   }
+
+  /* 
+    @Todo: Remove this function after the api has been fixed
+  */ 
+
+ getCastleIcon(castleName: String) {
+  switch(castleName) {
+    case 'sharkteeth': return "🦈"
+    case 'dragonscale': return "🐲";
+    case 'wolfpack': return "🐺";
+    case 'potato': return "🥔";
+    case 'highnest': return "🦅";
+    case 'moonlight': return "🌕";
+    case 'deerhorn': return "🦌";
+  }
+}
 
 }
