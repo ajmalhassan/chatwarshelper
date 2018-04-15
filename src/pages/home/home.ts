@@ -44,6 +44,13 @@ export class HomePage implements OnInit{
     this.getCumulative();
   }
 
+  doRefresh(refresher) {
+    this.getWorldTop();
+    this.getLastBattle();
+    this.getCumulative();
+    refresher.complete();
+  }
+
   getWorldTop() {
     this.home.ranks.loading = true;
     this.homeprovider.getWorldTop()

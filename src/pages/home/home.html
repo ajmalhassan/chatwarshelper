@@ -9,6 +9,10 @@
 
 <ion-content padding-top padding-bottom>
 
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+
   <ion-card>
     <ion-card-header>
       Castle ranking

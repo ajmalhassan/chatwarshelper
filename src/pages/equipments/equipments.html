@@ -15,6 +15,9 @@
 
 
 <ion-content padding-top padding-bottom>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
   <ion-list>
     <span *ngIf="!equip.loading && !equip.noData && !equip.error">
       <ion-item-group *ngFor="let category of equip.data.categories">

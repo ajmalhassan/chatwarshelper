@@ -34,6 +34,11 @@ export class EquipmentsPage {
     this.getItems();
   }
 
+  doRefresh(refresher) {
+    this.getItems();
+    refresher.complete();
+  }
+
   getItems() {
     this.equip.loading = true;
     this.equipmentprovider.getAllItems()
@@ -51,13 +56,11 @@ export class EquipmentsPage {
 
   getCategories(items: Item[]) {
     this.equip.data.categories = [];
-    console.log('recieved', items);
     items.forEach(item => {
       if(this.equip.data.categories.indexOf(item.subtype) === -1) {
         this.equip.data.categories.push(item.subtype)
       }
     });
-    console.log(JSON.stringify(this.equip.data.categories));
   }
 
 }
