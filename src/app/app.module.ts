@@ -17,6 +17,7 @@ import { HomeProvider } from '../providers/home/home';
 import { ResourcesPage } from '../pages/resources/resources';
 import { RecipesPage } from '../pages/recipes/recipes';
 import { EquipmentProvider } from '../providers/equipment/equipment';
+import { ResourceProvider } from '../providers/resource/resource';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { EquipmentProvider } from '../providers/equipment/equipment';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HomeProvider,
     ConfigProvider,
-    EquipmentProvider
+    EquipmentProvider,
+    ResourceProvider
   ]
 })
 export class AppModule {}

@@ -41,6 +41,7 @@ export class EquipmentsPage {
 
   getItems() {
     this.equip.loading = true;
+    this.equip.error = false;
     this.equipmentprovider.getAllItems()
     .subscribe((data: Item[]) => {
       this.equip.loading = false;

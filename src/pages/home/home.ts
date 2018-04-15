@@ -53,6 +53,7 @@ export class HomePage implements OnInit{
 
   getWorldTop() {
     this.home.ranks.loading = true;
+    this.home.ranks.error = false;
     this.homeprovider.getWorldTop()
     .subscribe((data: Array<String>) => {
       this.home.ranks.loading = false;
@@ -67,6 +68,7 @@ export class HomePage implements OnInit{
 
   getLastBattle() {
     this.home.results.loading = true;
+    this.home.results.error = false;
     this.homeprovider.getLastBattle()
     .subscribe((data: Array<String>) => {
       this.home.results.loading = false;
@@ -81,6 +83,7 @@ export class HomePage implements OnInit{
 
   getCumulative() {
     this.home.cumulative.loading = true;
+    this.home.cumulative.error = false;
     this.homeprovider.getCumulativeScore()
     .subscribe((data: Array<String>) => {
       this.home.cumulative.noData = data.length <= 0;
