@@ -3,27 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
-  Generated class for the HomeProvider provider.
+  Generated class for the RecipeProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class HomeProvider {
+export class RecipeProvider {
 
   constructor(public http: HttpClient, private config: ConfigProvider) {
   }
 
-  getWorldTop() {
-    return this.http.get(`${this.config.baseURL}/worldtop`);
-  }
-
-  getLastBattle() {
-    return this.http.get(`${this.config.baseURL}/lastbattle`);
-  }
-
-  getCumulativeScore() {
-    return this.http.get(`${this.config.baseURL}/battles/cumulativescore/2`);
+  getRecipeList() {
+    return this.http.get(`https://raw.githubusercontent.com/ajmalhassan/chatwarshelper/development/src/recipe.json`);
   }
 
 }
+

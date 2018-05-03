@@ -42,7 +42,6 @@ export class ResourcesPage {
       this.resources.data = data;
       this.resources.loading = false;
       this.resources.noData = data.length <= 0;
-      console.log(JSON.stringify(data));
     },
   error => {
     this.resources.loading = false;
