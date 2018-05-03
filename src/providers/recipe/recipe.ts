@@ -15,7 +15,7 @@ export class RecipeProvider {
   }
 
   getRecipeList() {
-    return this.http.get(``);
+    return this.http.get(`https://raw.githubusercontent.com/ajmalhassan/chatwarshelper/development/src/recipe.json`);
   }
 
 }
