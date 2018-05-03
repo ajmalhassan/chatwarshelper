@@ -18,6 +18,7 @@ import { ResourcesPage } from '../pages/resources/resources';
 import { RecipesPage } from '../pages/recipes/recipes';
 import { EquipmentProvider } from '../providers/equipment/equipment';
 import { ResourceProvider } from '../providers/resource/resource';
+import { RecipeProvider } from '../providers/recipe/recipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ResourceProvider } from '../providers/resource/resource';
     HomeProvider,
     ConfigProvider,
     EquipmentProvider,
-    ResourceProvider
+    ResourceProvider,
+    RecipeProvider
   ]
 })
 export class AppModule {}

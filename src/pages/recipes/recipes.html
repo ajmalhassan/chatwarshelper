@@ -10,10 +10,59 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Recipes</ion-title>
+    <ion-buttons end *ngIf="!recipeTriggers.loading && !recipeTriggers.error && !recipeTriggers.noData">
+      <button ion-button icon-only (click)="showFilter()">
+        <ion-icon name="funnel"></ion-icon> <ion-badge *ngIf="chosenList.length">{{chosenList.length}}</ion-badge>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding-top padding-bottom>
+<ion-content padding-top>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <span *ngIf="!recipeTriggers.loading && !recipeTriggers.error && !recipeTriggers.noData">
+    <span *ngFor="let recipe of recipeList">
+      <h4 padding-left *ngIf="recipe.recipes.length > 0">{{recipe.category}}</h4>
+      <ion-card *ngFor="let item of recipe.recipes">
+        <ion-item>
+          <h2>{{item.itemName}}</h2>
+          <p>
+            <ion-badge color="{{item.level ? 'danger' : 'warning'}}">Crafting level: {{item.level ? item.level : 'any'}}</ion-badge>
+          </p>
+          <span item-end>💰{{item.cost}}</span>
+          <span item-end>🛒 {{item.quantity}}</span>
+        </ion-item>
+        <ion-card-content no-padding>
+          <ion-list>
+            <span ion-item>
+              <span *ngFor="let material of item.ingredients; let i = index">
+                {{material.quantity}} {{material.ingredient}}
+                <span style="color: #666" *ngIf="i !== item.ingredients.length - 1">+</span>
+              </span>
+            </span>
+            <p style="color: #666; padding: 5px 13px">{{item.info ? 'Info: '+item.info : ''}}</p>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </span>
+  </span>
+
+  <span *ngIf="recipeTriggers.loading">
+    <ion-card text-center>
+      <loader></loader>
+    </ion-card>
+  </span>
+
+  <span *ngIf="recipeTriggers.error || recipeTriggers.noData">
+    <ion-card text-center>
+      <ion-icon name="warning"></ion-icon>
+      <br>
+      <span *ngIf="recipeTriggers.error">Something went wrong</span>
+      <span *ngIf="recipeTriggers.noData">No data to show</span>
+    </ion-card>
+  </span>
 
 </ion-content>

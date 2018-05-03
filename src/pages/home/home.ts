@@ -9,6 +9,7 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit{
+  test = {};
   home = {
     ranks: {
       data: [],

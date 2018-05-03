@@ -1,0 +1,306 @@
+{
+    "list": [
+      {
+        "category": "Basic Recipes",
+        "recipes": [
+          {
+            "itemName": "String",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Stick",
+                "quantity": 3
+              }
+            ],
+            "cost": 1
+          },
+          {
+            "itemName": "Steel",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Iron Ore",
+                "quantity": 2
+              },
+              {
+                "ingredient": "Powder",
+                "quantity": 2
+              }
+            ],
+            "cost": 1
+          },
+          {
+            "itemName": "Coin Purse",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Leather",
+                "quantity": 2
+              },
+              {
+                "ingredient": "Thread",
+                "quantity": 12
+              }
+            ],
+            "cost": 120,
+            "info": "Go to /inv to open pouch, which will give you 100 gold and the pouch gets destroyed"
+          },
+          {
+            "itemName": "Leather",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Pelt",
+                "quantity": 4
+              }
+            ],
+            "cost": 1
+          },
+          {
+            "itemName": "Wrap",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Cloth",
+                "quantity": 3
+              },
+              {
+                "ingredient": "String",
+                "quantity": 3
+              }
+            ],
+            "cost": 1,
+            "info": "Wrap a weapon by going to your workshop and choose wrap and then apply the wrap to an item in your backpack"
+          },
+          {
+            "itemName": "Coke",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Charcoal",
+                "quantity": 3
+              },
+              {
+                "ingredient": "Coal",
+                "quantity": 3
+              }
+            ],
+            "cost": 1
+          },
+          {
+            "itemName": "Torch",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Coke",
+                "quantity": 1
+              },
+              {
+                "ingredient": "Stick",
+                "quantity": 5
+              }
+            ],
+            "cost": 1,
+            "info": "Fills the dagger/shield slot and shortens forest quest by a minute during Night. BEWARE: It can be dropped"
+          },
+          {
+            "itemName": "Bone Powder",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Bone",
+                "quantity": 4
+              }
+            ],
+            "cost": 1
+          },
+          {
+            "itemName": "Arrows",
+            "quantity": 100,
+            "ingredients": [
+              {
+                "ingredient": "Stick",
+                "quantity": 6
+              },
+              {
+                "ingredient": "Iron Ore",
+                "quantity": 1
+              }
+            ],
+            "cost": 1,
+            "info": "Go to /inv > Misc to find the arrow pack, which must be unwrapped before arrows can be equipped"
+          },
+          {
+            "itemName": "Purified Powder",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Bone Powder",
+                "quantity": 2
+              },
+              {
+                "ingredient": "Powder",
+                "quantity": 2
+              },
+              {
+                "ingredient": "Magic Stone",
+                "quantity": 1
+              }
+            ],
+            "cost": 1
+          },
+          {
+            "itemName": "Wooden Shaft",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Powder",
+                "quantity": 1
+              },
+              {
+                "ingredient": "Stick",
+                "quantity": 5
+              }
+            ],
+            "cost": 1
+          },
+          {
+            "itemName": "Rope",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "String",
+                "quantity": 1
+              },
+              {
+                "ingredient": "Thread",
+                "quantity": 4
+              }
+            ],
+            "cost": 1
+          },
+          {
+            "itemName": "Metal Plate",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Iron Ore",
+                "quantity": 3
+              },
+              {
+                "ingredient": "Stick",
+                "quantity": 3
+              },
+              {
+                "ingredient": "Powder",
+                "quantity": 3
+              }
+            ],
+            "cost": 1
+          }
+        ]
+      },
+      {
+        "category": "Advanced Recipes",
+        "recipes": [
+          {
+            "itemName": "Steel Arrows",
+            "quantity": 100,
+            "ingredients": [
+              {
+                "ingredient": "Stick",
+                "quantity": 4
+              },
+              {
+                "ingredient": "Steel",
+                "quantity": 1
+              }
+            ],
+            "cost": 1,
+            "info": "Go to /inv > Misc to find the arrow pack, which must be unwrapped before arrows can be equipped",
+            "level": "2"
+          },
+          {
+            "itemName": "Steel Mold",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "String",
+                "quantity": 2
+              },
+              {
+                "ingredient": "Iron Ore",
+                "quantity": 2
+              },
+              {
+                "ingredient": "Powder",
+                "quantity": 2
+              }
+            ],
+            "cost": 1,
+            "level": "2"
+          },
+          {
+            "itemName": "Silver Mold",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "String",
+                "quantity": 2
+              },
+              {
+                "ingredient": "Silver Ore",
+                "quantity": 2
+              },
+              {
+                "ingredient": "Coke",
+                "quantity": 2
+              }
+            ],
+            "cost": 1,
+            "level": "2"
+          },
+          {
+            "itemName": "Silver Alloy",
+            "quantity": 1,
+            "ingredients": [
+              {
+                "ingredient": "Purified Powder",
+                "quantity": 1
+              },
+              {
+                "ingredient": "Steel",
+                "quantity": 1
+              },
+              {
+                "ingredient": "Silver",
+                "quantity": 1
+              }
+            ],
+            "cost": 1,
+            "level": "2"
+          }
+        ]
+      }
+    ],
+    "ingredients": [
+      "Stick",
+      "Iron Ore",
+      "Powder",
+      "Leather",
+      "Thread",
+      "Pelt",
+      "Cloth",
+      "String",
+      "Charcoal",
+      "Coal",
+      "Coke",
+      "Bone",
+      "Bone Powder",
+      "Magic Stone",
+      "Steel",
+      "Silver Ore",
+      "Silver",
+      "Purified Powder"
+    ]
+  }

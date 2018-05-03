@@ -1,10 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.hassanlabs.cwhelper" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.hassanlabs.cwhelper" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Chat Wars Helper</name>
     <description>A Chat wars helper</description>
     <author email="mail.hassanlabs@gmail.com" href="http://github.com/ajmalhassan/">Ajmal Hassan</author>
     <content src="index.html" />
     <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
